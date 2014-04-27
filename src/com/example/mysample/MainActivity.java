@@ -1,16 +1,13 @@
 package com.example.mysample;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-public class MainActivity extends Activity {
+import com.googlecode.androidannotations.annotations.EActivity;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-	}
+@EActivity(R.layout.activity_main)
+public class MainActivity extends BaseActivity {
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
