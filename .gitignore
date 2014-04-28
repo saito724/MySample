@@ -1,30 +1,20 @@
 # built application files
 *.apk
 *.ap_
- 
 # files for the dex VM
 *.dex
- 
 # Java class files
 *.class
- 
 # generated files
 bin/
 gen/
- 
 # Local configuration file (sdk path, etc)
 local.properties
- 
 # eclipse settings
 .classpath
 .project
 .settings/
-bin/AndroidManifest.xml
-
 .factorypath
+bin/*
+gen/*
 
-bin/AndroidManifest.xml
-
-bin/classes/com/example/mysample/MainActivity.class
-
-*.classß
