@@ -1,18 +1,23 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
+    android:background="@color/color3" 
     android:layout_height="match_parent"
-    android:background="@color/color3" >
-
+    >
+<TextView 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green">
+</TextView>
     <EditText
         android:id="@+id/editText1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10" >
     </EditText>
 
     <ExpandableListView
         android:id="@+id/expandableListView1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_slide_view">
     </ExpandableListView>

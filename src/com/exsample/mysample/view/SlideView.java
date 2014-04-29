@@ -14,12 +14,13 @@ import android.widget.Scroller;
 public class SlideView extends RelativeLayout {
 	private final int WC = ViewGroup.LayoutParams.WRAP_CONTENT;
 	private final int MP = ViewGroup.LayoutParams.MATCH_PARENT;
-
 	public static final int LtoR = 0;
 	public static final int RtoL = 1;
 	
 	private Scroller mScroller;
 	private int mDuration = 300;
+	private View mMainView;
+	private View mSubView;
 	
 	
 	private int mMode;
@@ -53,21 +54,23 @@ public class SlideView extends RelativeLayout {
 	
 	public void setView(View mainView, View subView, int mode) {
 		mMode = mode;
-		
+		mMainView = mainView;
+		mSubView = subView;
 		
 
-		RelativeLayout.LayoutParams rlp = getRLParams(WC, MP);
+		RelativeLayout.LayoutParams rlp = getRLParams(300, MP);
 		if (mode == RtoL) {
 			mStartX = 0;
 			mEndX = 300;
-			rlp.addRule(RelativeLayout.RIGHT_OF, mainView.getId());
+			rlp.addRule(RelativeLayout.ALIGN_RIGHT, mainView.getId());
 		}else{
 			mStartX = 0;
 			mEndX = -300;
-			rlp.addRule(RelativeLayout.LEFT_OF, mainView.getId());
+			rlp.addRule(RelativeLayout.ALIGN_LEFT, mainView.getId());
 		}
-		addView(subView,rlp);
 		addView(mainView, getRLParams(MP, MP));
+		addView(subView,rlp);
+		
 		LogUtil.DLog("subVieww", subView.getWidth());
 		LogUtil.DLog("mainView", mainView.getWidth());
 	}
@@ -89,7 +92,10 @@ public class SlideView extends RelativeLayout {
 			return;
 		}
 		mScroller.startScroll(mStartX, 0, (mEndX - mStartX), 0, mDuration);
-
+		RelativeLayout.LayoutParams rlp = getRLParams(300, MP);
+		rlp.addRule(RelativeLayout.ALIGN_RIGHT, mMainView.getId());
+		mSubView.setLayoutParams(rlp);
+		mSubView.invalidate();
 		LogUtil.DLog("open", mEndX);
         invalidate();
 	}

@@ -1,6 +1,7 @@
 package com.example.mysample;
 
 import android.R.color;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,10 +11,11 @@ import android.widget.Button;
 
 import com.example.mysample.util.LogUtil;
 import com.exsample.mysample.view.MenuListView;
+import com.exsample.mysample.view.ScrollHorizon;
 import com.exsample.mysample.view.SlideView;
 
 public class SlideViewActivity extends BaseActivity implements View.OnClickListener {
-	SlideView mSlideView;
+	ScrollHorizon mSlideView;
 	View mainView ;
 	View subView;
 	
@@ -27,10 +29,10 @@ public class SlideViewActivity extends BaseActivity implements View.OnClickListe
 
 		
 		
-		mSlideView = new SlideView(this);
+		mSlideView = new ScrollHorizon(this);
 		//mSlideView.setView(mainView, subView, SlideView.RtoL);
-		setContentView(mSlideView);
-		mSlideView.setView(mainView, subView, SlideView.RtoL);
+		//setContentView(mSlideView);
+		mSlideView.setView((Activity)this,mainView, subView, SlideView.RtoL);
 		Button btn1 = (Button)findViewById(R.id.btn_slide_view);
 		btn1.setOnClickListener(this);
 		Button btn2 = (Button)findViewById(R.id.button2);
